@@ -1,3 +1,7 @@
+/*
+Hanckerrank
+https://www.hackerrank.com/challenges/querying-the-document/problem?isFullScreen=true&h_r=next-challenge&h_v=zen 
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
