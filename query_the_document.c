@@ -9,18 +9,16 @@ https://www.hackerrank.com/challenges/querying-the-document/problem?isFullScreen
 #define MAX_CHARACTERS 1005
 #define MAX_PARAGRAPHS 5
 
+
 char* kth_word_in_mth_sentence_of_nth_paragraph(char**** document, int k, int m, int n) {
-    printf("k=%d, m=%d, n=%d\n", k, m, n);
-    return document[k-1][m-1][n-1];
+    return document[n-1][m-1][k-1];
 }
 
 char** kth_sentence_in_mth_paragraph(char**** document, int k, int m) {
-    // printf("k=%d, m=%d\n", k, m); 
-    return document[k-1][m-1];
+    return document[m-1][k-1];
 }
 
 char*** kth_paragraph(char**** document, int k) {
-    // printf("k=%d\n", k);
     return document[k-1];
 }
 char**** get_document(char* text) {
@@ -68,7 +66,6 @@ char**** get_document(char* text) {
     para_count++;
     doc = (char****)realloc(doc, para_count * sizeof(char***));
     doc[para_count-1] = para;
-    
     return doc;
 }
 
