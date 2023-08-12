@@ -15,12 +15,12 @@ char* kth_word_in_mth_sentence_of_nth_paragraph(char**** document, int k, int m,
 }
 
 char** kth_sentence_in_mth_paragraph(char**** document, int k, int m) {
-    printf("k=%d, m=%d\n", k, m); 
+    // printf("k=%d, m=%d\n", k, m); 
     return document[k-1][m-1];
 }
 
 char*** kth_paragraph(char**** document, int k) {
-    printf("k=%d\n", k);
+    // printf("k=%d\n", k);
     return document[k-1];
 }
 char**** get_document(char* text) {
@@ -57,6 +57,7 @@ char**** get_document(char* text) {
         if(*p == '\n') {
             sentence_count = 0;
             para_count++;
+            word_start ++; /* skip '\n' for new word*/
             doc = (char****)realloc(doc, para_count * sizeof(char***));
             doc[para_count-1] = para;
             para = NULL;
@@ -67,7 +68,7 @@ char**** get_document(char* text) {
     para_count++;
     doc = (char****)realloc(doc, para_count * sizeof(char***));
     doc[para_count-1] = para;
-    printf("para_count=%d\n", para_count);
+    
     return doc;
 }
 
