@@ -1,0 +1,22 @@
+/*
+https://www.hackerrank.com/challenges/one-month-preparation-kit-flipping-bits/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=one-month-preparation-kit&playlist_slugs%5B%5D=one-month-week-one
+*/
+
+long flippingBits(long n) {
+    int b[32] = {0};
+    int i = 0;
+    
+    while(n > 0){
+        b[i] = (n % 2);
+        n = n / 2;
+        i++;
+    }
+    unsigned long number = 0;
+    for(int j = 31; j >=0; j--){
+        b[j] = b[j] ^ 1;
+        unsigned int t = b[j] << j;   // unsigned int is 32 bit
+        number += t;
+        // printf("t=%u, number=%u, %d\n", t, number, b[j]);
+    }
+    return number;
+}
